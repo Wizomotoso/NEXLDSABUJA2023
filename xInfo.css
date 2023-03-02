@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=PT+Sans:wght@700&family=Source+Code+Pro:wght@200;300;400;600;700;800;900&display=swap');
+
+/* @keyframes jumping {
+  0% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dotReveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes line {
+  0% {
+    stroke-dashoffset: 0
+  }
+
+  100% {
+    stroke-dashoffset: 100%
+  }
+} */
+
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  background-color: rgb(0, 0, 0);
+  /* background-image: linear-gradient(to top, rgba(46, 204, 113,0.2) 1%, rgba(255,255,255,0) 0),
+                      linear-gradient(to right, rgba(46, 204, 113,0.2) 1%, rgba(255,255,255,0) 0); */
+  background-image: url(home\ background.png);
+  background-size: 50px 50px;
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  z-index: 10;
+  stroke-width: 4;
+  stroke: black;
+  width: 10px;
+  height: 10px;
+  fill: rgba(241, 196, 15, 1.0);
+  -moz-transform-origin: center;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.dot--starting.dot--starting {
+  fill: black;
+  stroke: rgba(46, 204, 113, 1.0);
+  stroke-width: 3;
+  stroke-miterlimit: outside;
+}
+
+.dot:not(.dot--starting) {
+  opacity: 0;
+  animation: dotReveal 1s linear;
+  animation-fill-mode: forwards;
+}
+
+#svg .dot:hover {
+  transform: scale(2);
+}
+
+#svg .dot[data-selected=true] {
+  opacity: 1;
+  fill: rgba(46, 204, 113, 1.0);
+  animation: jumping 0.5s ease-in-out alternate infinite;
+  animation-delay: 0;
+}
+
+#svg .dot[data-visited=true] {
+  fill: rgba(46, 204, 113, 1.0);
+  animation: jumping 0.5s ease-in-out alternate infinite;
+  animation-delay: 0;
+  opacity: 1;
+}
+
+.line {
+  z-index: 10;
+  stroke: rgba(46, 204, 113, 1.0);
+  stroke-width: 2;
+  stroke-dasharray: 2 16;
+  animation: line 10s linear infinite;
+}
+
+@media (max-width:480px) {
+  #preline {
+    display: none;
+  }
+}
+
+#launch-screen {
+  height: 100vh;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  visibility: hidden;
+  position: relative;
+  z-index: 10;
+  background-image: url(form\ background.png);
+  background-position: center center;
+  background-size: cover;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275);
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 5s;
+  -moz-animation: fadeIn 5s;
+  -o-animation: fadeIn 5s;
+  -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#launch-screen.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#container-1{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.theLogo {
+  width: 10%;
+  height: 50px;
+}
+
+/* The sentences */
+.sentence-one{
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: white;
+    margin-top: 40px;
+    font-weight: 600;
+    text-shadow:1px 1px 7px rgb(167, 161, 161), 1px 1px 7px rgb(167, 161, 161);
+}
+
+/* Button */
+.btn {
+  width: 200px;
+  height: 60px;
+  margin-top: 30px;
+}
+
+#container-2{
+  width: 200%;
+  --height: 150px;
+  height: var(--height);
+  --bottomOffset: calc(0px - var(--height)/2);
+  position: absolute;
+  bottom: var(--bottomOffset);
+}
+
+#projectX{
+  width: 100%;
+  height: 100%;
+  display: block;
+  
+}
+
+/* The Loader */
+.preloader{
+  transition:all 0.5s ease;
+  z-index: 9999;
+  font-family: 'Source Code Pro', monospace;
+  animation-name: example;
+  animation-duration: 4s;
+  position: absolute;
+  bottom: 30px;
+}
+
+.preloader_inner {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: #3BE39A;
+  text-shadow:1px 1px 7px black, 1px 1px 7px black;
+}
+
+@keyframes example {
+  0% {
+    bottom: -30px;
+  }
+
+  100%{
+    bottom: 30px;
+  }
+}
+
+/* Mobile Responsiveness */
+@media all and (max-width: 768px) {
+  .theLogo{
+    width: 30%;
+    height: 60px;
+  }
+}

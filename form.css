@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=PT+Sans:wght@700&family=Source+Code+Pro:wght@200;300;400;600;700;800;900&display=swap');
+
+#form-page{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  gap: 5rem;
+  color: white;
+  overflow: hidden;
+  font-family: 'Source Code Pro', monospace;
+}
+
+#logo-container{
+  position: absolute;
+  top: 50px;
+  text-align: center;
+}
+
+#progress-bar{
+  width: 100%;
+  height: 4px;
+  display: flex;
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+}
+
+.empty-bar{
+  width: calc(100% / 2);
+  height: 100%;
+  background-color: transparent;
+}
+
+.fill-bar.filled{
+  height: 100%;
+  background-color: #3BE39A;
+  animation: fill linear forwards;
+}
+
+@keyframes fill{
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+#form-container{
+  width: 100%;
+  align-self: flex-end;
+}
+
+#contact-form{
+  width: 100%;
+}
+
+.form-part{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  justify-content: space-between;
+  height: 200px;
+  display: none;
+}
+
+.form-part.active{
+  display: flex;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.label-group{
+  display: flex;
+  gap: 4px;
+}
+
+.label-text{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.label-text h1{
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.label-text h4{
+  font-size: 16px;
+  color: gray;
+  text-transform: capitalize;
+}
+
+.input-group{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
+  gap: 1rem;
+}
+
+.text-field{
+  border: 0px;
+  border-bottom: 2px solid grey;
+  color: rgb(136, 122, 122);
+  padding-bottom: .5rem;
+  background: transparent;
+  font-family: 'Source Code Pro', monospace;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
+}
+
+.button-group{
+  display: flex;
+  justify-content: start;
+  gap: .7rem;
+}
+
+.label-group.required #asterisk{
+  visibility: visible;
+}
+
+#asterisk{
+  width: 12px;
+  height: 25px;
+  visibility: hidden;
+}
+
+
+
+#prev-btn, #next-btn{
+  width: 40px;
+  cursor: pointer;
+}
+
+#next-btn{
+  margin-right: auto;
+}
+
+#okay-btn{
+  width: 150px;
+  cursor: pointer;
+}
+
+.last-button{
+  margin-right: auto;
+}
+
+@media all and (max-width: 768px){
+  .form-part{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .label-text h1{
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+
+  #asterisk{
+    width: 8px;
+    height: 20px;
+  }
+}
+
+.combo-box{
+  padding: 15px;
+  background-color: transparent;
+  color: #3BE39A;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.combo-box option{
+  color: #3BE39A;
+  font-family: 'Source Code Pro', monospace;
+  background-color: #161515;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+option { 
+  /* Whatever color  you want */
+  background-color: #000000;
+}
+
+.date-picker{
+  padding: 15px;
+  background-color: transparent;
+  color: #3BE39A;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Source Code Pro', monospace;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+@media all and (max-width: 480px){
+  .label-text h1{
+    font-size: 20px;
+  }
+
+  .label-text h4{
+    font-size: 13px;
+    color: gray;
+    text-transform: capitalize;
+  }
+
+  #asterisk{
+    width: 4px;
+    height: 15px;
+  }
+
+  #prev-btn, #next-btn{
+    width: 30px;
+  }
+
+  #okay-btn{
+    width: 100px;
+  }
+}
